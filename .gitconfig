@@ -1,6 +1,6 @@
 [user]
-	name = Gusakov Nikita
-	email = dev@nkt.me
+  name = Gusakov Nikita
+  email = dev@nkt.me
 [push]
   default = simple
 [color]
@@ -16,4 +16,4 @@
   aa = add --all
   hist = log --graph --all --format=format:'%C(bold blue)%h%C(reset) — %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
