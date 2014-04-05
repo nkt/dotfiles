@@ -8,6 +8,7 @@
 [color]
   ui = true
 [merge]
+  # Include summaries of merged commits in newly created merge commit messages
   log = true
 [alias]
   c = commit
@@ -26,3 +27,4 @@
 [core]
   excludesfile = ~/.gitignore_global
   trustctime = false
+  
