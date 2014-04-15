@@ -60,3 +60,11 @@ function phpserver() {
 	sleep 1 && open "http://${ip}:${port}/" &
 	php -S "${ip}:${port}"
 }
+
+function gulp() {
+    if [[ -f $PWD/gulpfile.coffee ]]; then
+        $(which gulp) "$@" --require coffee-script/register
+    else
+        $(which gulp) "$@"
+    fi
+}
