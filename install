@@ -36,7 +36,7 @@ if [[ `uname` == 'Darwin' ]]; then
     sudo cp -f etc/osx/paths /etc/paths
 
     echo 'Copying sublime files...'
-    cp -rf etc/sublime/* $SUBLIMEUSER
+    cp -Rf etc/sublime/* "$SUBLIMEUSER"
 
     scutil --set HostName "$HOSTNAME"
     scutil --set ComputerName "$COMPNAME"
