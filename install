@@ -1,18 +1,46 @@
 #!/bin/bash
 
-# Creates ssh key
-ssh-keygen -t rsa
+HOSTNAME="osx-nkt"
+COMPNAME=$(echo $HOSTNAME | tr '-' '.')
+PUBKEY="$HOME/.ssh/id_rsa.pub"
+SUBLIMEUSER="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+
+echo 'Creating projects directory...'
+mkdir "$HOME/Projects"
+
+if [[ ! -f "$PUBKEY" ]]; then
+    echo 'Generating new SSH key..'
+    ssh-keygen -t rsa
+fi
+
 echo 'Add your SSH key to GitHub'
-pbcopy < ~/.ssh/id_rsa.pub
-open 'https://github.com/settings/ssh'
+[[ -f "$PUBKEY" ]] && pbcopy < ~/.ssh/id_rsa.pub
+sleep 3 && open 'https://github.com/settings/ssh'
 
-cp -f files/* ~/
-sudo cp -f osx/paths /etc/paths
+echo 'Copying dotfiles...'
+for dotfile in files/.*; do
+    if [[ -f $dotfile ]]; then
+        cp -f $dotfile "$HOME/"
+    fi
+done
 
-# Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
-brew bundle osx/Brewfile
+if [[ `uname` == 'Darwin' ]]; then
+    which -s brew
+    if [[ $? != 0 ]]; then
+        echo 'Installing Homebrew...'
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
+        brew bundle osx/Brewfile
+    fi
 
-source osx/.osx
+    echo 'Replacing default paths file...'
+    sudo cp -f etc/osx/paths /etc/paths
+
+    echo 'Copying sublime files...'
+    cp -rf etc/sublime/* $SUBLIMEUSER
+
+    scutil --set HostName "$HOSTNAME"
+    scutil --set ComputerName "$COMPNAME"
+    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPNAME"
+fi
 
 sudo reboot
