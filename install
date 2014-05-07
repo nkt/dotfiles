@@ -29,7 +29,7 @@ if [[ `uname` == 'Darwin' ]]; then
     if [[ $? != 0 ]]; then
         echo 'Installing Homebrew...'
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
-        brew bundle osx/Brewfile
+        brew bundle etc/osx/Brewfile
     fi
 
     echo 'Replacing default paths file...'
