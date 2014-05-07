@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Creates ssh key
+ssh-keygen -t rsa
+echo 'Add your SSH key to GitHub'
+pbcopy < ~/.ssh/id_rsa.pub
+open 'https://github.com/settings/ssh'
+
+cp -f files/* ~/
+sudo cp -f osx/paths /etc/paths
+
+# Install Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
+brew bundle osx/Brewfile
+
+source osx/.osx
+
+sudo reboot
