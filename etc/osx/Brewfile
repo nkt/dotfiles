@@ -1,12 +1,9 @@
-update
-upgrade
-
+# Taps
 tap homebrew/dupes
-tap josegonzalez/homebrew-php
-tap phinze/cask
+tap homebrew/versions
+tap homebrew/homebrew-php
+tap caskroom/cask
 tap caskroom/versions
-
-update
 
 install bash grep ack
 install wget --enable-iri
@@ -17,9 +14,11 @@ install bash-completion
 install valgrind
 install brew-cask
 
+# Php and extensions
 install php55 --with-fpm --with-gmp --without-pear
 install php55-xdebug php55-vld php55-intl php55-imagick php55-apcu
 
+# Applications
 cask install google-chrome firefox opera evernote appcleaner vlc steam transmission teamviewer skype
 cask install sequel-pro phpstorm github sublime-text3 vagrant mou
 
