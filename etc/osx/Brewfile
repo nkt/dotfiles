@@ -15,8 +15,8 @@ install valgrind
 install brew-cask
 
 # Php and extensions
-install php55 --with-fpm --with-gmp --without-pear
-install php55-xdebug php55-vld php55-intl php55-imagick php55-apcu
+install php56 --with-fpm --with-gmp --without-pear
+install php56-xdebug php56-vld php56-imagick php56-apcu
 
 # Applications
 cask install google-chrome firefox opera evernote appcleaner vlc steam transmission teamviewer skype
