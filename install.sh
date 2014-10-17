@@ -1,46 +1,34 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 HOSTNAME="osx-nkt"
 COMPNAME=$(echo $HOSTNAME | tr '-' '.')
-PUBKEY="$HOME/.ssh/id_rsa.pub"
-SUBLIMEUSER="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
 echo 'Creating projects directory...'
 mkdir "$HOME/Projects"
-
-if [[ ! -f "$PUBKEY" ]]; then
-    echo 'Generating new SSH key..'
-    ssh-keygen -t rsa
-fi
-
-echo 'Add your SSH key to GitHub'
-[[ -f "$PUBKEY" ]] && pbcopy < ~/.ssh/id_rsa.pub
-sleep 3 && open 'https://github.com/settings/ssh'
-
-echo 'Copying dotfiles...'
-for dotfile in files/.*; do
-    if [[ -f $dotfile ]]; then
-        cp -f $dotfile "$HOME/"
-    fi
-done
 
 if [[ `uname` == 'Darwin' ]]; then
     which -s brew
     if [[ $? != 0 ]]; then
         echo 'Installing Homebrew...'
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
-        brew bundle etc/osx/Brewfile
     fi
 
     echo 'Replacing default paths file...'
     sudo cp -f etc/osx/paths /etc/paths
-
-    echo 'Copying sublime files...'
-    cp -Rf etc/sublime/* "$SUBLIMEUSER"
 
     scutil --set HostName "$HOSTNAME"
     scutil --set ComputerName "$COMPNAME"
     sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPNAME"
 fi
 
-sudo reboot
+if [[ ! -f "$PUBKEY" ]]; then
+    echo 'Generating new SSH key..'
+    ssh-keygen -t rsa
+fi
+
+echo 'Symlink dotfiles...'
+for dotfile in files/.*; do
+    if [[ -f $dotfile ]]; then
+        ln -s $dotfile "$HOME/"
+    fi
+done
