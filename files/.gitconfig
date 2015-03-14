@@ -17,7 +17,8 @@
 
 [alias]
   c = commit
-  ca = !git add -A && git commit -av
+  cm = commit -m
+  cam = commit -am
   tags = tag -l
   b = branch
   r = remote
