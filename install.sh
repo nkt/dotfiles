@@ -1,36 +1,49 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-HOSTNAME="osx-nkt"
-COMPNAME=$(echo $HOSTNAME | tr '-' '.')
-PUBKEY="$HOME/.ssh/id_rsa.pub"
+function setup_osx_hostname {
+  HOSTNAME=$1
+  COMPNAME=$(echo $HOSTNAME | tr '-' '.')
+
+  if [[ $(scutil --get HostName) != "$HOSTNAME" ]]; then
+    scutil --set HostName "$HOSTNAME"
+    scutil --set ComputerName "$COMPNAME"
+    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPNAME"
+  fi
+}
+
+function clone_dotfiles {
+  if [ ! -d ~/Projects/nkt/dotfiles ]; then
+    mkdir -p ~/Projects/nkt && cd $_
+    git clone git://github.com/nkt/dotfiles.git
+  fi
+}
+
+function setup_dotfiles {
+  ln -sf ~/Projects/nkt/dotfiles/files/.bashrc ~/.bash_profile
+  ln -sf ~/Projects/nkt/dotfiles/files/.gitconfig ~/.gitconfig
+  ln -sf ~/Projects/nkt/dotfiles/files/.gitignore_global ~/.gitignore_global
+}
+
+function install_brew {
+  which -s brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
+function setup_soft {
+  sh ~/Projects/nkt/dotfiles/osx/soft.sh
+}
+
+function setup_etcfiles {
+  sudo cp -f ~/Projects/nkt/dotfiles/osx/etc/* /etc
+}
 
 if [[ `uname` == 'Darwin' ]]; then
-    which -s brew
-    if [[ $? != 0 ]]; then
-        echo 'Installing Homebrew...'
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/homebrew/go/install)"
-    fi
+  setup_osx_hostname "osx-nkt"
 
-    mkdir -p "$HOME/Projects"
+  clone_dotfiles
+  setup_dotfiles
 
-    echo 'Replacing default paths file...'
-    sudo cp -f etc/osx/paths /etc/paths
+  install_brew
+  setup_soft
 
-    if [[ $(scutil --get HostName) != "$HOSTNAME" ]]; then
-        scutil --set HostName "$HOSTNAME"
-        scutil --set ComputerName "$COMPNAME"
-        sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPNAME"
-    fi
-fi
-
-echo 'Copying dotfiles...'
-for dotfile in files/.*; do
-    if [[ -f $dotfile ]]; then
-        cp -f $dotfile "$HOME/"
-    fi
-done
-
-if [[ ! -f "$PUBKEY" ]]; then
-    echo 'Generating new SSH key..'
-    ssh-keygen -t rsa -f "$PUBKEY"
+  setup_etcfiles
 fi
