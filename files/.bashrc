@@ -49,7 +49,7 @@ alias ....='cd ../../..'
 
 alias ds='cd ~/Desktop'
 alias p='cd ~/Projects'
-alias e='$EDITOR'
+alias e='/usr/local/bin/atom'
 alias vld='php -dvld.active=1 '
 alias phpcover='phpunit --coverage-text="php://stdout"'
 
