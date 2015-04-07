@@ -15,7 +15,7 @@ shopt -s cdspell
 
 # Exports
 
-export EDITOR='/usr/local/bin/atom -w'
+export EDITOR='/usr/local/bin/subl'
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -49,7 +49,7 @@ alias ....='cd ../../..'
 
 alias ds='cd ~/Desktop'
 alias p='cd ~/Projects'
-alias e='/usr/local/bin/atom'
+alias e='$EDITOR'
 alias vld='php -dvld.active=1 '
 alias phpcover='phpunit --coverage-text="php://stdout"'
 
