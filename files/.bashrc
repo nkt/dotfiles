@@ -16,6 +16,7 @@ shopt -s cdspell
 # Exports
 
 export EDITOR='/usr/local/bin/subl'
+export REACT_EDITOR='/usr/local/bin/atom'
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
