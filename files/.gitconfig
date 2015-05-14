@@ -34,6 +34,7 @@
 [core]
   excludesfile = ~/.gitignore_global
   trustctime = false
+  editor = vim
 
 # URL shorthands
 # gh:nkt/dotfiles
