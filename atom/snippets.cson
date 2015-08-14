@@ -28,26 +28,32 @@
     prefix: 'Promise'
     body: 'new Promise((resolve, reject) => {\n  $1\n});'
   'then':
-    prefix: '.then'
-    body: '.then(($1) => {\n  $2\n})${3:;}'
+    prefix: 'then'
+    body: 'then(($1) => {\n  $2\n})${3:;}'
   'catch':
-    prefix: '.catch'
-    body: '.catch((${1:error}) => {\n  $2\n})${3:;}'
+    prefix: 'catch'
+    body: 'catch((${1:error}) => {\n  $2\n})${3:;}'
   'forEach':
-    prefix: '.for'
-    body: '.forEach((${1:item}) => {\n  $2\n})${3:;}'
+    prefix: 'for'
+    body: 'forEach((${1:item}) => {\n  $2\n})${3:;}'
   'map':
-    prefix: '.map'
-    body: '.map((${1:item}) => {\n  $2\n})${3:;}'
+    prefix: 'map'
+    body: 'map((${1:item}) => {\n  $2\n})${3:;}'
   'filter':
-    prefix: '.filter'
-    body: '.filter((${1:item}) => {\n  $2\n})${3:;}'
+    prefix: 'filter'
+    body: 'filter((${1:item}) => {\n  $2\n})${3:;}'
   'this':
     prefix: '@'
     body: 'this.'
   'require':
-    prefix: 'req'
-    body: "const $1 = require('$1');"
+    prefix: 'r'
+    body: "const ${1:$2} = require('$1');"
+  'require local':
+    prefix: 'r.'
+    body: "const ${1:$2} = require('./$1');"
+  'module exports':
+    prefix: 'me'
+    body: 'module.exports = $1;'
   'it':
     prefix: 'it'
     body: '''
@@ -63,4 +69,19 @@ describe('${1:something}', () => {
     ${4:// code}
   });
 });
+'''
+  'React create component':
+    prefix: 'rcc'
+    body: '''
+const React = require('react');
+
+const $1 = React.createClass({
+  render() {
+    return (
+      ${2:<div>$3</div>}
+    );
+  }
+});
+
+module.exports = $1;
 '''
