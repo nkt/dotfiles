@@ -1,12 +1,7 @@
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-    export GIT_PS1_SHOWDIRTYSTATE=1
-    export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] ❯\[\033[00m\] '
-fi
-
-if [ -f $(brew --prefix nvm)/nvm.sh ]; then
-  export NVM_DIR=~/.nvm
-  source $(brew --prefix nvm)/nvm.sh
+  . $(brew --prefix)/etc/bash_completion
+  export GIT_PS1_SHOWDIRTYSTATE=1
+  export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] ❯\[\033[00m\] '
 fi
 
 # Case-insensitive globbing (used in pathname expansion)
@@ -22,6 +17,7 @@ shopt -s cdspell
 
 export EDITOR='/usr/local/bin/subl'
 export REACT_EDITOR='/usr/local/bin/atom'
+export GOPATH='/Users/nkt/Projects/go'
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
