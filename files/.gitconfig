@@ -29,8 +29,7 @@
   aa = add --all
   undo = reset --soft HEAD^
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  ls = log --graph --all --format=format:'%C(bold blue)%h%C(reset) — %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [core]
   excludesfile = ~/.gitignore_global
@@ -49,3 +48,7 @@
   insteadOf = "gist:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
