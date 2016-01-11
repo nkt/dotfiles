@@ -11,25 +11,24 @@ function tap {
 
 tap homebrew/dupes
 tap homebrew/versions
-tap homebrew/php
 tap homebrew/completions
+tap homebrew/php
 tap homebrew/nginx
+tap homebrew/services
 
 # common
-i bash zsh wget
-i bash-completion zsh-completions
-i vim --override-system-vi
+i bash bash-completion
+i wget curl
 
 # databases
 i postgres
 i mongo
+i rethinkdb
 
 # languages
-i nodejs iojs
+i nodejs
 i python
 i ruby
 i rust
-i php56 --with-fpm --with-gmp --without-pear
-i php56-xdebug php56-vld
 
 brew cleanup

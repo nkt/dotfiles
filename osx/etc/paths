@@ -1,3 +1,4 @@
+node_modules/.bin
 /usr/local/opt/ruby/bin
 /usr/local/bin
 /usr/local/sbin

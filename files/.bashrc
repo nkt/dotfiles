@@ -64,8 +64,6 @@ alias ....='cd ../../..'
 alias ds='cd ~/Desktop'
 alias p='cd ~/Projects'
 alias e='$EDITOR'
-alias vld='php -dvld.active=1 '
-alias phpcover='phpunit --coverage-text="php://stdout"'
 
 alias ls='ls -FhlG'
 alias la='ls -a'

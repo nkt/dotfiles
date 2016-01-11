@@ -17,19 +17,20 @@
 
 [alias]
   c = commit
+  b = branch
+  r = remote
+  s = status --short
   cm = commit -m
   cam = commit -am
   tags = tag -l
-  b = branch
-  r = remote
   go = checkout -b
   co = checkout
   st = status
-  s = status --short
   aa = add --all
   undo = reset --soft HEAD^
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  amend = commit --amend --no-edit
 
 [core]
   excludesfile = ~/.gitignore_global
