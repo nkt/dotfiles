@@ -1,6 +1,7 @@
 [user]
   name = Nikita Gusakov
-  email = dev@nkt.me
+  email = gusnkt@gmail.com
+	signingkey = 7C79E534
 
 [apply]
   whitespace = fix
@@ -16,6 +17,8 @@
   log = true
 
 [alias]
+  cs = commit -S
+  csm = commit -S -m
   c = commit
   b = branch
   r = remote
@@ -31,6 +34,8 @@
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   amend = commit --amend --no-edit
+  # rmb = "!git branch --merged | grep -v \"\*\" | grep -v master | xargs -n 1 git branch -d"
+  rmb = "!git branch --merged | grep -v '*' | grep -v 'master' | xargs -n 1 git branch -d"
 
 [core]
   excludesfile = ~/.gitignore_global
@@ -53,3 +58,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[mergetool]
+	keepBackup = false

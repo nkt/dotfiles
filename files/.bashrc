@@ -14,7 +14,7 @@ function init_nvm {
 
 init_bash_completion
 init_ps1
-# init_nvm
+init_nvm
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -76,3 +76,14 @@ alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload='exec $SHELL -l'
+
+# Functions
+
+function compress_tar {
+  tar czf $1.tar.gz $1
+}
+
+function cleanup {
+  find $1 -name ".DS_Store" -depth -exec rm {} \;
+}
+
