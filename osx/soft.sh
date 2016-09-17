@@ -1,34 +1,24 @@
 #!/bin/sh
 
-function i {
-  brew install "$@"
-}
-
-function tap {
-  brew tap "$@"
-}
-
-
-tap homebrew/dupes
-tap homebrew/versions
-tap homebrew/completions
-tap homebrew/php
-tap homebrew/nginx
-tap homebrew/services
+brew tap homebrew/nginx
+brew tap homebrew/dupes
+brew tap homebrew/services
+brew tap homebrew/versions
+brew tap homebrew/completions
 
 # common
-i bash bash-completion
-i wget curl
+brew install wget curl
+brew install bash bash-completion
 
 # databases
-i postgres
-i mongo
-i rethinkdb
+brew install mongo
+brew install postgres
+brew install rethinkdb
 
 # languages
-i nodejs
-i python
-i ruby
-i rust
+brew install go
+brew install rust
+brew install nodejs
+brew install python
 
 brew cleanup

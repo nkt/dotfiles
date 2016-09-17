@@ -26,7 +26,6 @@ shopt -s histappend
 shopt -s cdspell
 
 # Exports
-
 export EDITOR='/usr/local/bin/subl'
 export REACT_EDITOR='/usr/local/bin/atom'
 export GOPATH='/Users/nkt/Projects/go'
@@ -86,4 +85,3 @@ function compress_tar {
 function cleanup {
   find $1 -name ".DS_Store" -depth -exec rm {} \;
 }
-

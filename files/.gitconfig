@@ -8,6 +8,10 @@
 
 [push]
   default = current
+	followTags = true
+
+[commit]
+	sign = true
 
 [color]
   ui = true
@@ -16,9 +20,10 @@
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
+[mergetool]
+	keepBackup = false
+
 [alias]
-  cs = commit -S
-  csm = commit -S -m
   c = commit
   b = branch
   r = remote
@@ -26,21 +31,20 @@
   cm = commit -m
   cam = commit -am
   tags = tag -l
-  go = checkout -b
   co = checkout
+  go = checkout -b
   st = status
   aa = add --all
   undo = reset --soft HEAD^
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   amend = commit --amend --no-edit
-  # rmb = "!git branch --merged | grep -v \"\*\" | grep -v master | xargs -n 1 git branch -d"
   rmb = "!git branch --merged | grep -v '*' | grep -v 'master' | xargs -n 1 git branch -d"
 
 [core]
-  excludesfile = ~/.gitignore_global
-  trustctime = false
   editor = subl -w
+  trustctime = false
+  excludesfile = ~/.gitignore_global
 
 # URL shorthands
 # gh:nkt/dotfiles
@@ -54,9 +58,8 @@
   insteadOf = "gist:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[mergetool]
-	keepBackup = false
