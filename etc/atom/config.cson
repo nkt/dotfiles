@@ -1,0 +1,98 @@
+"*":
+  "atom-pair": {}
+  "autocomplete-go": {}
+  "autocomplete-modules":
+    webpack: false
+  autosave:
+    enabled: true
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "tool-bar"
+      "atom-pair"
+      "atom-ternjs"
+      "Parinfer"
+      "postcss-sorting"
+      "stylefmt"
+      "tree-view"
+      "linter-stylelint"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "node_modules"
+      "build"
+      "dist"
+    ]
+    themes: [
+      "one-dark-ui"
+      "atom-light-syntax"
+    ]
+  editor:
+    fontFamily: "Fira Code"
+    fontSize: 12
+    invisibles: {}
+    preferredLineLength: 100
+  "exception-reporting":
+    userId: "cb2dbf3a-3ed1-586a-0ad4-b76b14f4eb4e"
+  "fuzzy-finder": {}
+  "highlight-selected": {}
+  linter:
+    errorPanelHeight: 22
+    showErrorInline: false
+    showErrorTabLine: true
+  "linter-docker": {}
+  "linter-eslint": {}
+  "linter-golinter":
+    executablePath: "/Users/nkt/Projects/go/bin/golint"
+  "linter-stylelint":
+    disableWhenNoConfig: true
+  motepair: {}
+  nuclide:
+    installRecommendedPackages: true
+    "nuclide-arcanist": {}
+    "nuclide-buck-files": {}
+    "nuclide-datatip": {}
+    "nuclide-file-tree":
+      showOpenFiles: false
+    "nuclide-flow":
+      diagnosticsOnFly: true
+      enableStructuredTypeHints: true
+    "nuclide-format-js": {}
+    "nuclide-hack": {}
+    "nuclide-health": {}
+    "nuclide-home":
+      showHome: false
+    "nuclide-ios-simulator-logs": {}
+    "nuclide-ocaml": {}
+    "nuclide-output": {}
+    "nuclide-working-sets": {}
+  pigments:
+    markerType: "native-background"
+  stylefmt:
+    formatOnSave: true
+  tabs: {}
+  "terminal-plus":
+    core: {}
+    style:
+      theme: "dracula"
+  "tool-bar":
+    iconSize: "16px"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

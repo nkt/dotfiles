@@ -37,6 +37,12 @@ function link_sublime {
   ln -sf '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' /usr/local/bin
 }
 
+function setup_atom {
+  ln -sf ~/Projects/nkt/dotfiles/etc/atom/styles.less ~/.atom/styles.less
+  ln -sf ~/Projects/nkt/dotfiles/etc/atom/config.cson ~/.atom/config.cson
+  ln -sf ~/Projects/nkt/dotfiles/etc/atom/snippets.cson ~/.atom/snippets.cson
+}
+
 function setup_etcfiles {
   sudo cp -f ~/Projects/nkt/dotfiles/osx/etc/* /etc
 }
@@ -50,6 +56,7 @@ if [[ `uname` == 'Darwin' ]]; then
   install_brew
   setup_soft
   link_sublime
+  setup_atom
 
   setup_etcfiles
 fi
