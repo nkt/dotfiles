@@ -1,17 +1,16 @@
 [user]
   name = Nikita Gusakov
   email = gusnkt@gmail.com
-	signingkey = 7C79E534
 
 [apply]
   whitespace = fix
 
 [push]
   default = current
-	followTags = true
+  followTags = true
 
 [commit]
-	sign = true
+  gpgsign = true
 
 [color]
   ui = true
@@ -20,8 +19,15 @@
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
+
+[log]
+  date = relative
+
+[format]
+  pretty = format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(15,trunc)%aN%C(auto,reset)%s%C(auto,red)% gD% D
+
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 
 [alias]
   c = commit
@@ -36,15 +42,14 @@
   st = status
   aa = add --all
   undo = reset --soft HEAD^
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   amend = commit --amend --no-edit
-  rmb = "!git branch --merged | grep -v '*' | grep -v 'master' | xargs -n 1 git branch -d"
+  remove-merged-branches = "!git branch --merged | grep -v '*' | grep -v 'master' | xargs -n 1 git branch -d"
 
 [core]
   editor = subl -w
   trustctime = false
   excludesfile = ~/.gitignore_global
+  ignorecase = false
 
 # URL shorthands
 # gh:nkt/dotfiles
@@ -60,6 +65,6 @@
   pushInsteadOf = "git://gist.github.com/"
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true

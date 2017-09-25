@@ -1,4 +1,8 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-code-format": {}
+  "atom-package-deps":
+    ignored: []
   "atom-pair": {}
   "autocomplete-go": {}
   "autocomplete-modules":
@@ -10,6 +14,7 @@
       "source.ini": [
         ".buckconfig"
         ".flowconfig"
+        ".hgrc"
       ]
       "source.json": [
         ".arcconfig"
@@ -18,15 +23,23 @@
       "source.python": [
         "BUCK"
       ]
+      "text.ignore": [
+        ".dockerignore"
+      ]
     disabledPackages: [
-      "tool-bar"
       "atom-pair"
       "atom-ternjs"
       "Parinfer"
       "postcss-sorting"
       "stylefmt"
-      "tree-view"
       "linter-stylelint"
+      "whitespace"
+      "language-javascript"
+      "linter"
+      "linter-eslint"
+      "linter-ui-default"
+      "ide-typescript"
+      "ide-flowtype"
     ]
     ignoredNames: [
       ".git"
@@ -39,51 +52,45 @@
       "build"
       "dist"
     ]
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
-      "atom-light-syntax"
+      "one-light-syntax"
     ]
   editor:
     fontFamily: "Fira Code"
     fontSize: 12
     invisibles: {}
     preferredLineLength: 100
+    softWrap: true
   "exception-reporting":
     userId: "cb2dbf3a-3ed1-586a-0ad4-b76b14f4eb4e"
   "fuzzy-finder": {}
   "highlight-selected": {}
-  linter:
-    errorPanelHeight: 22
-    showErrorInline: false
-    showErrorTabLine: true
-  "linter-docker": {}
-  "linter-eslint": {}
-  "linter-golinter":
-    executablePath: "/Users/nkt/Projects/go/bin/golint"
-  "linter-stylelint":
-    disableWhenNoConfig: true
+  "ide-flowtype":
+    autoDownloadFlowBinaries: false
+    tryFlowBin: true
+  linter: {}
+  "linter-flow": {}
+  "linter-ui-default":
+    panelHeight: 69
   motepair: {}
+  "nord-atom-ui":
+    darkerFormFocusEffect: true
+    tabSizing: false
   nuclide:
-    installRecommendedPackages: true
-    "nuclide-arcanist": {}
-    "nuclide-buck-files": {}
-    "nuclide-datatip": {}
-    "nuclide-file-tree":
-      showOpenFiles: false
     "nuclide-flow":
-      diagnosticsOnFly: true
-      enableStructuredTypeHints: true
-    "nuclide-format-js": {}
-    "nuclide-hack": {}
-    "nuclide-health": {}
+      canUseFlowBin: true
+      lazyServer: true
     "nuclide-home":
       showHome: false
-    "nuclide-ios-simulator-logs": {}
-    "nuclide-ocaml": {}
-    "nuclide-output": {}
-    "nuclide-working-sets": {}
   pigments:
     markerType: "native-background"
+  "prettier-atom":
+    formatOnSaveOptions: {}
+    prettierOptions:
+      singleQuote: true
+    useEslint: true
   stylefmt:
     formatOnSave: true
   tabs: {}
@@ -93,6 +100,19 @@
       theme: "dracula"
   "tool-bar":
     iconSize: "16px"
-  "tree-view": {}
+  "tree-view":
+    alwaysOpenExisting: true
   welcome:
     showOnStartup: false
+".hgignore.ignore.text":
+  editor:
+    preferredLineLength: 100
+".ignore.slugignore.text":
+  editor:
+    preferredLineLength: 100
+".ignore.text":
+  editor:
+    preferredLineLength: 100
+".ini.source":
+  editor:
+    preferredLineLength: 100

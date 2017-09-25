@@ -20,6 +20,7 @@ function clone_dotfiles {
 
 function setup_dotfiles {
   ln -sf ~/Projects/nkt/dotfiles/files/.npmrc ~/.npmrc
+  ln -sf ~/Projects/nkt/dotfiles/files/.yarnrc ~/.yarnrc
   ln -sf ~/Projects/nkt/dotfiles/files/.bashrc ~/.bash_profile
   ln -sf ~/Projects/nkt/dotfiles/files/.gitconfig ~/.gitconfig
   ln -sf ~/Projects/nkt/dotfiles/files/.gitignore_global ~/.gitignore_global

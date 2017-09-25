@@ -30,6 +30,15 @@ export EDITOR='/usr/local/bin/subl'
 export REACT_EDITOR='/usr/local/bin/atom'
 export GOPATH='/Users/nkt/Projects/go'
 
+export PATH=$PATH:node_modules/.bin
+export PATH=$PATH:/usr/local/opt/ruby/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
@@ -75,6 +84,8 @@ alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload='exec $SHELL -l'
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Functions
 

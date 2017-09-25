@@ -7,18 +7,18 @@ brew tap homebrew/versions
 brew tap homebrew/completions
 
 # common
+brew install htop
 brew install wget curl
 brew install bash bash-completion
+brew install docker-completion docker-clean
+brew install rpm
+brew install cocoapods
 
 # databases
-brew install mongo
-brew install postgres
-brew install rethinkdb
+brew install postgresql
 
 # languages
-brew install go
-brew install rust
-brew install nodejs
-brew install python
+brew install go rust scala
+brew install nvm node yarn
 
 brew cleanup
